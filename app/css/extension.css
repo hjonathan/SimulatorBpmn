@@ -1,0 +1,19 @@
+.pmCrown {
+    display: block;
+    position: absolute;
+    font-size: 20px;
+}
+
+.pmCrown:hover{
+    background: rgba(65, 88, 158, 0.6);
+}
+
+.modal-dialog.pmModal{
+    position: absolute;
+    width: 300px;
+}
+
+.pmMenulist{
+    font-size: 26px;
+}
+

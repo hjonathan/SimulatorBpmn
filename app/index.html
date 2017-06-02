@@ -1,0 +1,108 @@
+<html>
+<head>
+  <title>bpmn-js modeler demo</title>
+
+  <link rel="stylesheet" href="css/diagram-js.css" />
+  <link rel="stylesheet" href="vendor/bpmn-font/css/bpmn-embedded.css" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <link rel="stylesheet" href="css/app.css" />
+  <link rel="stylesheet" href="css/extension.css" />
+</head>
+<body>
+  <div class="content" id="js-drop-zone">
+
+    <div class="message intro">
+      <div class="note">
+        Drop BPMN diagram from your desktop or <a id="js-create-diagram" href>create a new diagram</a> to get started.
+      </div>
+    </div>
+
+    <div class="message error">
+      <div class="note">
+        <p>Ooops, we could not display the BPMN 2.0 diagram.</p>
+
+        <div class="details">
+          <span>cause of the problem</span>
+          <pre></pre>
+        </div>
+      </div>
+    </div>
+
+    <div class="canvas" id="js-canvas"></div>
+  </div>
+
+  <ul class="buttons">
+    <li>
+      download
+    </li>
+    <li>
+      <a id="js-download-diagram" href title="download BPMN diagram">
+        BPMN diagram
+      </a>
+    </li>
+    <li>
+      <a id="js-download-svg" href title="download as SVG image">
+        SVG image
+      </a>
+    </li>
+      <li id= "js-pm-play-sim" class="pmMenulist">
+          <span class="glyphicon glyphicon-play" aria-hidden="true"></span>
+      </li>
+  </ul>
+
+  <script src="index.js"></script>
+
+
+  <script type="foo/bar" id='modalboot'>
+
+      <div class="modal-dialog pmModal" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title">Settings</h4>
+          </div>
+          <div class="modal-body">
+
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-primary">Save changes</button>
+          </div>
+        </div><!-- /.modal-content -->
+      </div><!-- /.modal-dialog -->
+
+
+  </script>
+  <script type="foo/bar" id='pmSettings'>
+      <div class="pmCrown">
+        <span class="glyphicon glyphicon-object-align-bottom" aria-hidden="true"></span>
+      </div>
+  </script>
+
+    <script type="foo/bar" id='pmTask'>
+        <form class="form-horizontal">
+            <div class="form-group">
+                <label  class="col-sm-2 control-label">Time</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control">
+                </div>
+            </div>
+            <div class="form-group">
+                <label  class="col-sm-2 control-label">Payload</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control">
+                </div>
+            </div>
+
+            </form>
+
+    </script>
+
+    <script type="foo/bar" id='pmMarker'>
+        <div class="well well-sm">jonas</div>
+    </script>
+
+</body>
+
+
+
+</html>
