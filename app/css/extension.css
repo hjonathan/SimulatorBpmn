@@ -17,3 +17,22 @@
     font-size: 26px;
 }
 
+.well.well-sm.pmCount {
+    display: block;
+    position: absolute;
+    font-size: 9px;
+}
+
+.pmcases{
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    background: darkred;
+}
+
+.pmtime{
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    background: greenyellow;
+}

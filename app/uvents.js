@@ -18,8 +18,8 @@ _.extend(uvents.prototype, {
    },
    click: function (e){
        this.createCrownForElement(e);
-       if(e.element.crown){
-           e.element.crown.render();
+       if(window.schema[e.element.id] && window.schema[e.element.id].crown) {
+           window.schema[e.element.id].crown.render();
        }
        return this;
    },
@@ -40,8 +40,14 @@ _.extend(uvents.prototype, {
     },
     createCrownForElement : function (e){
         this.filter(e, function (dt){
-            if(!dt.element.crown){
-                dt.element.crown = new Crown(e);
+            if(window.schema){
+                if(!window.schema[e.element.id]){
+                    window.schema[e.element.id] = {};
+                }
+                window.schema[e.element.id]["e"] = e;
+            }
+            if(!window.schema[e.element.id].crown){
+                window.schema[e.element.id].crown = new Crown(e);
             }
         });
         return this;

@@ -1,9 +1,9 @@
 var _ = require("lodash"),
-    $ = require("jquery");
+    $$ = require("jquery");
 
 var ModalEvent = function (e) {
     this.e = null;
-    this.$el =  $(_.template($("#pmTask").html())({}));
+    this.$el =  $$(_.template($$("#pmStartEvent").html())({}));
     ModalEvent.prototype.init.call(this, e);
 };
 
@@ -14,6 +14,13 @@ _.extend(ModalEvent.prototype, {
     },
     render : function (){
         return this;
+    },
+    getData : function (){
+        var data = {
+            time:  this.$el.find("#pmtimeavg").val(),
+            cases: this.$el.find("#pmNumberCases").val()
+        };
+        return data;
     }
 });
 
