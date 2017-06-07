@@ -55,6 +55,7 @@ _.extend(uvents.prototype, {
     filter: function (e, callback){
         switch (e.element.type){
             case "bpmn:StartEvent":
+            case "bpmn:ScriptTask":
             case "bpmn:Task":
             case "bpmn:bpmn:EndEvent":
             case "bpmn:EndEvent":

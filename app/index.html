@@ -48,9 +48,8 @@
       <li id= "js-pm-play-sim" class="pmMenulist">
           <span class="glyphicon glyphicon-play" aria-hidden="true"></span>
       </li>
-    <li id= "js-pm-play-import" class="pmMenulist">
-      <span class="glyphicon glyphicon-upload" aria-hidden="true"></span>
-
+    <li id= "js-pm-stop" class="pmMenulist">
+      <span class="glyphicon glyphicon-stop" aria-hidden="true"></span>
     </li>
     <input type="file" style="display:none" id="pmimporter"/>
   </ul>
@@ -105,12 +104,6 @@
   <script type="foo/bar" id='pmStartEvent'>
         <form class="form-horizontal">
             <div class="form-group">
-                <label class="col-sm-2 control-label">Time</label>
-                <div class="col-sm-10">
-                    <input id= "pmtimeavg" type="text" class="form-control">
-                </div>
-            </div>
-            <div class="form-group">
                 <label  class="col-sm-2 control-label">Number Cases</label>
                 <div class="col-sm-10">
                     <input id= "pmNumberCases" type="text" class="form-control">
@@ -124,15 +117,16 @@
     <script type="foo/bar" id='pmCounter'>
         <div id="pmc-<%= id %>" class="well well-sm pmCount">
           <div>
-            <span class="pmtimec"></span>
+           
             <span class="pmtime"></span>
-            <span > Time Execution</span>
+            <span > Time Execution :</span>
+             <span class="pmtimec"></span>
           </div>
 
            <div>
+           
+            <span > Cases number:</span>
             <span class="pmcasesc"></span>
-            <span class="pmcases">  </span>
-            <span > Cases number</span>
 
            </div>
         </div>

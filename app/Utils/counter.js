@@ -15,7 +15,7 @@ _.extend(Counter.prototype, {
     render : function (){
         var a = this, data;
         $$(document.body).append(this.$el);
-        debugger;
+        
         data = this.calculatePosition(this.e);
         this.$el.css("top", data.top-40);
         this.$el.css("left",data.left);
@@ -44,7 +44,7 @@ _.extend(Counter.prototype, {
     },
     update : function (data){
         this.updateCases(data.cases);
-        this.updateTime(data.time);
+        this.updateTime(data.executionTime);
         return this;
     },
     updateCases : function (cases){
@@ -52,6 +52,12 @@ _.extend(Counter.prototype, {
         return this;
     },
     updateTime : function (time){
+        var defineTime = 1000;
+        var delta = (time-defineTime)/defineTime;
+        
+        var ncolor = (255-(delta*255))/2; 
+        
+        this.$el.find(".pmtime").css("background","rgba(159, "+ parseInt(ncolor) +", 31, 1)");
         this.$el.find(".pmtimec").html(time);
         return this;
     },

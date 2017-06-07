@@ -24,6 +24,7 @@ _.extend(Modal.prototype, {
             case "bpmn:EndEvent":
                 resp = new mEvent(this.e);
                 break;
+            case "bpmn:ScriptTask":
             case "bpmn:Task":
                 resp = new mTask(this.e);
                 break;
@@ -63,17 +64,28 @@ _.extend(Modal.prototype, {
         if(window.schema[this.e.element.id]){
             window.schema[this.e.element.id]["data"] = data;
         }
-
-        window.ws.configuration({
-            processId: window.configuration.processId,
-            taskId:$$(window.schema[this.e.element.id].e.gfx).find("text.djs-label").text()
-        },{
-            data:data
-        }, function (err, data){
-            if(!err){
-                console.log("jonas guardado");
-            }
-        });
+        debugger;
+        switch (this.e.element.type){
+            case "bpmn:StartEvent":
+            case "bpmn:EndEvent":
+                window.ws.casesSimulation({cases:data.cases }, function (err, data){
+                        if(!err){
+                            console.log("Saved number cases");
+                        }
+                    });
+                break;
+            case "bpmn:Task":
+               
+                break;
+            case "bpmn:ExclusiveGateway":
+               
+                break;
+            case "bpmn:Process":
+                break;
+            default:
+                break;
+        }
+        return this;
     },
     addContent : function (el){
         this.modal.find(".modal-body").html(el);

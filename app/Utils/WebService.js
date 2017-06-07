@@ -10,7 +10,9 @@ var WebServiceManager = function (options) {
     this.options.endPoints = {
         import: "processes/import",
         configuration : "processes/{processId}/task/{taskId}/simulation/configuration",
-        simulation:"simulation"
+        simulation:"simulation",
+        startSimulation:"simulation/start/{cases}",
+          
     };
     this.options.links = {
         showDocument: "{server}/sys{workspace}/en/{skin}/cases/cases_ShowDocument?a={docUID}&v=1"
@@ -109,11 +111,11 @@ WebServiceManager.prototype.configuration = function (config,data,callback) {
     return ajax;
 };
 
-WebServiceManager.prototype.simulation = function (config,data,callback) {
+WebServiceManager.prototype.simulation = function (data,callback) {
     var that = this,
         ajax,
         url,
-        method = "POST";
+        method = "GET";
 
     url = that.getFullEndPoint(that.options.keys, that.options.urlBase, that.options.endPoints.simulation);
 
@@ -122,6 +124,32 @@ WebServiceManager.prototype.simulation = function (config,data,callback) {
         type: method,
         async: true,
         data: JSON.stringify(data),
+        contentType: "application/json",
+        beforeSend: function (xhr) {
+
+        },
+        success: function (data, textStatus) {
+            callback(null, data);
+        },
+        error: function (xhr, textStatus, errorThrown) {
+            callback({}, null);
+        }
+    });
+    return ajax;
+};
+
+WebServiceManager.prototype.casesSimulation = function (data,callback) {
+    var that = this,
+        ajax,
+        url,
+        method = "GET";
+    this.setKey("cases", data.cases);
+    url = that.getFullEndPoint(that.options.keys, that.options.urlBase, that.options.endPoints.startSimulation);
+
+    ajax = $$.ajax({
+        url: url,
+        type: method,
+        async: true,
         contentType: "application/json",
         beforeSend: function (xhr) {
 

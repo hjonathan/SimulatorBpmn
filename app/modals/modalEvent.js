@@ -17,7 +17,6 @@ _.extend(ModalEvent.prototype, {
     },
     getData : function (){
         var data = {
-            time:  this.$el.find("#pmtimeavg").val(),
             cases: this.$el.find("#pmNumberCases").val()
         };
         return data;

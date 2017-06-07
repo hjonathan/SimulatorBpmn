@@ -209,14 +209,10 @@ $(document).on('ready', function () {
 
     $("#js-pm-play-sim").click(function () {
         Simulator.start(modeler.definitions);
+    });
 
-        setInterval(function () {
-            window.ws.simulation(data, function (err, data){
-                if(!err){
-                    Simulator.update(data);
-                }
-            });
-        }, 2000);
+    $("#js-pm-stop").click(function () {
+        Simulator.stop();
     });
 
     window.modeler = modeler;
@@ -224,6 +220,8 @@ $(document).on('ready', function () {
     window.schema = {};
     window.ws = ws;
     window.configuration = {};
+
+       // a = [{"executionTime":29699.805769231,"sdv":5939.9611538462,"cases":520,"id":136,"taskId":"cfdb0db2-8f97-4ceb-a0ed-e6be6dc3ee57","taskName":"Task 2","processId":39},{"executionTime":30933.330769231,"sdv":6186.6661538462,"cases":520,"id":137,"taskId":"53a9bf20-7353-41ff-b53c-5694bcbfb46d","taskName":"Task 4","processId":39},{"executionTime":29026.101727447,"sdv":5805.2203454894,"cases":521,"id":138,"taskId":"dbdb00b2-a594-44e1-ae58-03de344f6db9","taskName":"Start","processId":39}];
 
 
 
